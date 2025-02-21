@@ -1,0 +1,200 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+body {
+   background-image: url("../image/217713_tiny.mp4");
+   background-size: 100%; /* 섹션을 완전히 덮도록 이미지 크기 조정 */
+   background-position: center; /* 이미지의 중심을 섹션의 중심에 맞추기 */
+   background-repeat: no-repeat; /* 이미지 반복 안 함 */
+   position: relative;
+   overflow: hidden;
+}
+.video-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   z-index: -1;
+}
+
+video {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+/************************배경을 흐리게 만들기 */
+/*******************body 태그 위에 가상 요소를 전체 화면에 덮는 배경처럼 생성 */
+/* body::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   color: black;
+   opacity: 0.2;
+} */
+section {
+   display: flex;
+   justify-content: center;
+   /* padding: 10px; */
+   color: white;
+}
+
+/* 상단 메뉴 */
+#head {
+   margin: 20px 0;
+   display: flex;
+   justify-content: space-around;
+   text-align: center;
+   border: white;
+   font-size: 18px;
+   text-shadow: 2px 2px 8px rgba(123, 148, 249, 0.8);
+}
+/* Q
+최상단의 3개의 div를 같은 너비로 배치하기 */
+/* first span {
+  width: 300;
+} */
+#current {
+   display: flex;
+   flex-direction: column; /* 요소들을 수직으로 배치 */
+   align-items: center; /* 가로 중앙 정렬 */
+   justify-content: center; /* 세로 중앙 정렬 */
+   /* text-align: center; */
+   color: #1e1f21;
+   text-shadow: 4px 5px 5px white;
+   margin-top: 60px;
+   line-height: 1;
+}
+#date {
+   font-size: 30px;
+   font-weight: bold;
+}
+#time {
+   font-weight: bold;
+   font-size: 120px;
+}
+#remain {
+   font-size: 30px;
+   font-weight: bold;
+}
+
+/* 중앙 메뉴 */
+/* Q
+마우스 올리면 더 커지고 클릭하면 추가, 수정, 삭제 할 수 있게 만들기 */
+#motto {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 23px;
+   margin-top: 40px;
+   text-shadow: 2px 2px 8px rgba(248, 248, 251, 0.8);
+   line-height: 2;
+}
+#todo {
+   display: flex;
+   /* justify-content: space-around; */
+   text-align: center;
+   /* padding: 20px; */
+}
+#todo div {
+   display: flex;
+   flex-direction: column; /* 내부 요소를 수직 정렬 */
+   align-items: center; /* 가운데 정렬 */
+
+   padding: 15px 10px;
+   border-radius: 10px;
+   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+h3 {
+   text-shadow: 2px 2px 2px #2e3536;
+   color: rgb(253, 252, 252);
+   /* border: 8px 8px 8px 8px #2e3536; */
+}
+#yesterday {
+   width: 320px;
+   height: 270px;
+   margin: 20px;
+}
+#yesterday li {
+   list-style: none; /* 기본 리스트 스타일 제거 */
+   padding: 4px;
+   font-size: 15px;
+   font-weight: bold;
+   margin: 5px 0;
+   background-color: rgba(235, 233, 228, 0.5);
+   width: 90%;
+   /* height: 15%; */
+   border-radius: 5px;
+   /* box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); */
+   color: #2e3536;
+}
+#today {
+   background-color: rgb(245, 243, 243, 0);
+   width: 400px;
+   height: 300px;
+   margin: 0px;
+}
+#today li {
+   list-style: none; /* 기본 리스트 스타일 제거 */
+   padding: 5px;
+   font-size: 18px;
+   font-weight: bold;
+   margin: 5px 0;
+   width: 90%;
+   /* height: 15%; */
+   border-radius: 5px;
+   /* box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); */
+   color: #2e3536;
+   background-color: RGBa(254, 208, 145, 0.5);
+}
+#today h3 {
+   color: RGBa(254, 208, 145, 0.5);
+   font-size: 28px;
+}
+#tomorrow {
+   width: 320px;
+   height: 270px;
+   margin: 20px;
+}
+#tomorrow li {
+   list-style: none; /* 기본 리스트 스타일 제거 */
+   padding: 4px;
+   font-size: 15px;
+   font-weight: bold;
+   margin: 5px 0;
+   background-color: rgba(235, 233, 228, 0.5);
+   width: 90%;
+   /* height: 15%; */
+   border-radius: 5px;
+   /* box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); */
+   color: #2e3536;
+}
+
+/* 하단 메뉴 */
+#tail {
+   display: flex;
+   justify-content: space-between;
+   text-align: center;
+   padding: 20px;
+}
+#tail div {
+   display: flex;
+   flex-direction: column; /* 내부 요소를 수직 정렬 */
+   align-items: center; /* 가운데 정렬 */
+   padding: 5px 30px;
+}
+#history {
+   width: 500px;
+   margin: 0;
+}
+/* div {
+   border: 1px solid black;
+   width: 400px;
+   height: 50px;
+   margin: 10px;
+} */

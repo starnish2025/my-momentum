@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>My Momentum</title>
+      <link rel="stylesheet" href="./css/style.css" />
+   </head>
+
+   <body>
+      <!-- 배경 비디오 -->
+      <div class="video-container">
+         <video autoplay muted loop>
+            <source src="./image/232415_small.mp4" type="video/mp4" />
+            <!-- 브라우저가 MP4를 지원하지 않을 경우 -->
+            브라우저가 동영상을 지원하지 않습니다.
+         </video>
+      </div>
+      <!-- 최상단 메뉴 -->
+      <section id="head">
+         <!-- 최상단_좌측_프로젝트 실패시 치뤄야하는 댓가 -->
+         <input></input>
+         <!-- 최상단_중앙_프로젝트명& d-day, 진행율:% -->
+         <div><h2>자바스크립트 마스터 D-157</h2></div>
+         <!-- <div>경과률:%</div>
+        <div>진행률:%</div> -->
+         <!-- 최상단_우측_프로젝트 성공시 얻게되는 보상 -->
+         <div>전세계를 한달살이하며 개발자의 삶!</div>
+      </section>
+      <input type="text" id="head div" placeholder="   WHAT TO DO " />
+      <!-- 시간정보 -->
+      <section id="current">
+         <div id="date"></div>
+         <div id="time"></div>
+         <div id="remain"></div>
+      </section>
+
+      <!-- 중앙 메뉴 -->
+      <section id="motto">
+         <!-- 인생의 목표 -->
+         <div><h2>"넘치는 능력, 남아도는 재력, 흐르는 기품!!"</h2></div>
+
+         <!-- 인생의 모토 -->
+         <div>
+            <h3>한 번 실패와 영원한 실패를 혼동하지 마라-F.스콧 핏제랄드</h3>
+         </div>
+      </section>
+
+      <!-- totolist 만들기 -->
+      <section id="todo">
+         <div id="yesterday">
+            <h3>YESTERDAY</h3>
+
+            <li>자바스크립트 동영상 강의</li>
+            <li>도서관 방문, 도서반납 및 대출</li>
+            <li>치과</li>
+            <li>고객사 미팅</li>
+            <li>쓰레기봉투구입</li>
+         </div>
+
+         <div id="today">
+            <h3>TODAY</h3>
+            <li>고객사 의견반영 코드 수정</li>
+            <li>코코 정기검진</li>
+            <li>뮤지컬 티켓 예약</li>
+            <li>산책</li>
+            <li>졸업선물 검색, 주문</li>
+            <li>마트 장보기</li>
+            <!-- <li>냉장고 청소</li> -->
+         </div>
+
+         <div id="tomorrow">
+            <h3>TOMORROW</h3>
+            <li>동문회 참석</li>
+            <li>카센터 방문</li>
+            <li>분리수거</li>
+            <li>전체 회의</li>
+            <!-- <li></li> -->
+         </div>
+      </section>
+
+      <!-- 최하단 메뉴 -->
+      <section id="tail">
+         <div>
+            <div>대구</div>
+            <div>미세먼지 -5/6</div>
+            <div>차차 흐려짐 -3/9</div>
+         </div>
+         <div>
+            <div id="history">1804년 최초의 증기기관차 운행</div>
+            <div id="quotes">This too shall pass away.</div>
+            <div id="idom">
+               苦盡甘來 고진감래 고생 끝에 즐거움이 옴을 이르는 말.
+            </div>
+         </div>
+         <div>
+            <div>전체 투두 리스트</div>
+            <div>프로젝트진행상황</div>
+            <div>SETTING</div>
+         </div>
+      </section>
+      <script>
+         function updateTime() {
+            const now = new Date();
+
+            // 요일 배열
+            const weekDays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, "0");
+            const day = now.getDate().toString().padStart(2, "0");
+            const dayOfWeek = weekDays[now.getDay()]; // 요일 가져오기
+
+            const hours = now.getHours().toString().padStart(2, "0");
+            const minutes = now.getMinutes().toString().padStart(2, "0");
+            const seconds = now.getSeconds().toString().padStart(2, "0");
+
+            // 날짜와 요일 표시
+            document.getElementById(
+               "date"
+            ).innerText = `${year}. ${month}. ${day}. ${dayOfWeek}`;
+            // 현재 시간 표시
+            document.getElementById(
+               "time"
+            ).innerText = `${hours}:${minutes}:${seconds}`;
+
+            // 자정(00:00:00)까지 남은 시간 계산
+            const midnight = new Date(now);
+            midnight.setHours(24, 0, 0, 0); // 오늘의 자정 시간
+
+            const diff = midnight - now; // 밀리초 단위
+            const remainHours = Math.floor(diff / (1000 * 60 * 60));
+            const remainMinutes = Math.floor(
+               (diff % (1000 * 60 * 60)) / (1000 * 60)
+            );
+            const remainSeconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById(
+               "remain"
+            ).innerText = `${remainHours}:${remainMinutes
+               .toString()
+               .padStart(2, "0")}:${remainSeconds.toString().padStart(2, "0")}`;
+         }
+
+         updateTime(); // 처음 실행
+         setInterval(updateTime, 1000); // 매초 업데이트
+      </script>
+   </body>
+</html>

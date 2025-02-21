@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        display: flex; /* div 요소들을 가로 배치 */
+        justify-content: space-around; /* 적당한 간격 유지 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+        padding: 20px;
+      }
+
+      section div {
+        display: flex;
+        flex-direction: column; /* 내부 요소를 수직 정렬 */
+        align-items: center; /* 가운데 정렬 */
+        width: 30%; /* div 요소의 너비 설정 */
+        background-color: #f8f9fa; /* 배경색 추가 */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      li {
+        list-style: none; /* 기본 리스트 스타일 제거 */
+        padding: 8px;
+        font-size: 18px;
+        margin: 5px 0;
+        background-color: #ffffff;
+        width: 80%;
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <section id="todo">
+      <div>
+        <h3>어제의 투두</h3>
+        <li>운동 30분</li>
+        <li>책 10페이지 읽기</li>
+        <li>청소하기</li>
+        <li>할 일 정리</li>
+        <li>명상 10분</li>
+      </div>
+
+      <div>
+        <h3>오늘의 투두</h3>
+        <li>운동 1시간</li>
+        <li>프로젝트 진행</li>
+        <li>회의 참석</li>
+        <li>스터디 참여</li>
+        <li>요리하기</li>
+      </div>
+
+      <div>
+        <h3>내일의 투두</h3>
+        <li>새로운 기술 공부</li>
+        <li>영화 감상</li>
+        <li>운동 45분</li>
+        <li>블로그 글 작성</li>
+        <li>가족과 시간 보내기</li>
+      </div>
+    </section>
+  </body>
+</html>
